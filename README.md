@@ -1,7 +1,7 @@
 # SpringBootExercise
 An exercise using Spring Boot to call methods to a server
 
-To utilize you'll need an database in your 3306 port
+To utilize you'll need an database named "teste" in your 3306 port
 
 Endpoints:
 
