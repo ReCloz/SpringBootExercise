@@ -5,7 +5,7 @@ To utilize you'll need an database named "teste" in your 3306 port
 
 Endpoints:
 
-@Post
+@Post Endpoints
 /demo/add
 Send a parameter "name" to add an user
 
@@ -15,6 +15,6 @@ Send the "id" parameter to delete an user
 /demo/update
 Send an "id" parameter to change it's name using the "name" parameter
 
-@Get
+@Get Endpoints
 /demo/all
 Return all user in database
