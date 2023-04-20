@@ -1,5 +1,6 @@
 package com.teste.demo;
 
+import com.teste.demo.service.UserService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,35 +18,40 @@ public class MainController {
     @Autowired
     private UserRepository userRep;
 
+    @Autowired
+    private UserService userSer;
+
+
     @PostMapping(path="/add")
     public @ResponseBody String addNewUser (@RequestParam String name) {
 
-        User n = new User();
-        n.setName(name);
-        userRep.save(n);
+        userSer.username(name);
+//        User n = new User();
+//        n.setName(name);
+//        userRep.save(n);
         return "Saved";
     }
 
     @GetMapping(path="/all")
     public @ResponseBody Iterable<User> getAllUsers() {
-
-        return userRep.findAll();
+        return userSer.getallusernames();
+//        return userRep.findAll();
     }
 
     @PostMapping(path="/delete")
     @Transactional
     public @ResponseBody String deleteUser(@RequestParam int id){
-
-        userRep.deleteUserById(id);
+        userSer.deleteusername(id);
+//        userRep.deleteUserById(id);
         return "Deleted";
     }
 
     @PostMapping(path="/update")
     public @ResponseBody String updateUser(@RequestParam int id, @RequestParam String name){
-
-        User n =userRep.findById(id);
-        n.setName(name);
-        userRep.save(n);
+        userSer.updateusername(id, name);
+//        User n =userRep.findById(id);
+//        n.setName(name);
+//        userRep.save(n);
         return "Updated";
     }
 
